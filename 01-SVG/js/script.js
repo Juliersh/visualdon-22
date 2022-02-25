@@ -9,7 +9,7 @@ domOn('rect', 'click', async evt => {
     }
 )
 
-domOn('.circle1', 'mousemove', async evt => {
+domOn('.circle1', 'mouseover', async evt => {
     const btn = evt.currentTarget;
     if (btn.style.r === '60') {
         btn.style.r = '100';   
