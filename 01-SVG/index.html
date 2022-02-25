@@ -20,7 +20,7 @@
   </svg>
     <h2>Donut</h2>
     <svg width="500" height="200">
-    <circle class='circle1' cx="50" cy="50" r="60" stroke="black" fill="transparent"></circle>
+    <circle cx="50" cy="50" r="60" stroke="black" fill="transparent"></circle>
     <circle cx="50" cy="50" r="30" stroke="black" fill="transparent"></circle>
   </svg>
     <h2>Ligne</h2>
@@ -42,7 +42,7 @@
 
     <h2>On click</h2>
     <svg width="500" height="200">
-    <rect x="0" y="0" width="400" height="100" fill="red"></rect>
+    <rect class="rectangle1" x="0" y="0" width="400" height="100" fill="red"></rect>
   </svg>
     <h2>On hover</h2>
     <svg width="500" height="200">
@@ -50,7 +50,14 @@
       <circle cx="50" cy="50" r="30" stroke="black" fill="transparent"></circle>
     </svg>
     <h2>Prenez la première lettre de votre prénom que vous avez créée ci-dessus. Faite bouger une forme de votre choix le long de la lettre</h2>
-
+    <svg width="500" height="200">
+      <path d="M 0 10 H 60 L 30 10 V 60 L 0 60 " fill="none" stroke="red" id="letterJ"></path>
+      <circle cx="" cy="" r="10" fill="black">
+      <animateMotion dur="5s" repeatCount="indefinite"> 
+        <mpath href="#letterJ"/>
+      </animateMotion>
+    </circle>
+    </svg>
   
   </body>
 </html>

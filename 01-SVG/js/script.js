@@ -1,6 +1,6 @@
 
 
-domOn('rect', 'click', async evt => {
+domOn('.rectangle1', 'click', async evt => {
     const btn = evt.currentTarget;
     if (btn.style.fill === 'red') {
         btn.style.fill = 'blue';   
