@@ -7,42 +7,26 @@ Promise.all([
   json(WS_POSTS),
   json(WS_USERS)
 ])
-.then(([posts, users]) =>  {
-//   console.log(posts)
-//   console.log(users)
-  const tabUsers = users.map((d,i) => {
-      return users
-  })
-  const tabPosts = posts.map((d,i) => {
-      return posts
-  })
-  const newData = users.map((d) =>  [d.name, d.address.city, d.company]);
-  const lesPosts = posts.filter()
-  newData.forEach(el => {
-        
+  .then(([posts, users]) => {
+    const usersPosts = [];
+    users.forEach(user => {
+      const userId = user.id;
+      const person = {
+        nom_utilisateur: user.name,
+        ville: user.address.city,
+        nom_companie: user.company.name
+      };
+      console.log(person)
+      const userPosts = posts.filter((d, i) => {
+        return d.userId == userId;
+      });
+      const titre_posts = [];
+      userPosts.forEach(post => {
+        titre_posts.push(post.title);
+      });
+      
+      person['titre_posts'] = titre_posts;
+      usersPosts.push(person);
+
     });
-
-  //   newData.rows.add(null, newData);
-  console.log(newData)
-
-
-//   const noms = users.map((d,i) => {
-//       return d.name
-//   })
-//   const idUsers = users.map((d,i) => {
-//       return d.id;
-//   })
-//   const idUsersPosts = posts.map((d,i) => {
-//       return d.userId;
-//   })
-//   console.log(noms)
-//   console.log(idUsers)
-//   console.log(idUsersPosts)
-//   console.log(tabUsers)
-//   console.log(tabPosts)
-//   const tab = []
-//   tab.push(tabPosts)
-//   tabUsers.push(tabPosts)
-//   console.log(tabUsers)
-});
-
+  })
