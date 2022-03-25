@@ -35,7 +35,7 @@ Promise.all([
 
     let graphPosts = [];
 
-    // * Calculez le nombre de **posts** par **user**
+    // Calculez le nombre de posts par user
 
     d3.select("body")
       .append("div")
