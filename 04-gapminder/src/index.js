@@ -274,14 +274,15 @@ function stop() {
   nIntervId = null;
 }
 
-// Fonction de mise à jour du graphique
-function updateChart(data_iteration) {
+
+
+function updateChart(iterationDonnees) {
   svg3.selectAll('circle')
-    .data(data_iteration.data)
+    .data(iterationDonnees.data)
     .join(enter => enter.append('circle')
       .attr("stroke", "black")
       .style("opacity", "0.7")
-      .style("fill", `#${Math.floor(Math.random() * 16777215).toString(16)}`)
+      .style("fill", color)
       .attr('cx', function (d) { return x(d.income); })
       .attr('cy', function (d) { return y(d.life); }).transition(d3.transition()
         .duration(500)
