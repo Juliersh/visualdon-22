@@ -2,6 +2,8 @@ import jsdom from "jsdom";
 import fetch from "isomorphic-fetch"
 import puppeteer from "puppeteer"
 
+//récupérer les url des données pour les afficher dans le terminal diretement sur visual studio
+
 //-------------------------------Webscraper Wikipedia------------------------------------------------------------------------------------------
 
 (async () => {
@@ -11,7 +13,7 @@ import puppeteer from "puppeteer"
     try {
       const page = await navigateur.newPage();
       await page.goto(url);
-  
+
       const rawData = await page.$$eval('table tr', rows => {
         return Array.from(rows, row => {
           const columns = row.querySelectorAll('td');
@@ -46,6 +48,8 @@ import puppeteer from "puppeteer"
     }
   })();
 
+//Affiche les tabs avec les cantons et leur population
+
 
 //-------------------------------------------------Webscraper e-commerce------------------------------------------------------
 (async () => {
@@ -65,12 +69,13 @@ import puppeteer from "puppeteer"
             let prix = await el.$eval('.price', el => el.textContent);
             let notation = await el.$eval('.ratings :nth-child(2)', el => el.getAttribute( 'data-rating' ));
             notation = parseInt(notation);
-            
+            //récup les donnnées
             let productComplete = {
                 produit: produit,
                 prix: prix,
                 etoiles: notation
             }
+            //push dans le tab 
             productList.push(productComplete);
         }
 
@@ -80,3 +85,5 @@ import puppeteer from "puppeteer"
       console.log('error', error);
     }
 })();
+
+//affichent les produits e-commerce du site web dans un tab qui contient un id unique, les prix et la notation
